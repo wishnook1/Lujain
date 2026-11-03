@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wishnook · إكسير لجين</title>
+<meta name="description" content="هدية قوثية تفاعلية للجين: اصنعي إكسير منتصف الليل 🦇">
+<meta property="og:title" content="إكسير منتصف الليل للجين 🦇 | Wishnook · ركن الأمنيات">
+<meta property="og:description" content="هدية تفاعلية قوثية صُنعت خصيصًا لك. افتحي الرابط واخلطي إكسيرك!">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wishnook1.github.io/lujain/">
+<meta property="og:image" content="https://wishnook1.github.io/lujain/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Wishnook · ركن الأمنيات">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wishnook1.github.io/lujain/og.png">
+<meta name="theme-color" content="#1a0f2e">
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Baloo+Bhaijaan+2:wght@500;800&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#140a24;--pan:#1f1136;--rose:#ff3d7f;--gold:#e8c15a;--bone:#f3e9dc;--vio:#7a52e0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);font-family:'Baloo Bhaijaan 2',sans-serif;color:var(--bone)}
+body{min-height:100vh;display:flex;justify-content:center;padding:10px;background-image:radial-gradient(#3a2260 1px,transparent 1px);background-size:18px 18px}
+#cover{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;background:radial-gradient(circle at 50% 18%,#5a2a8a 0,#2a1245 38%,#0e0618 80%);transition:opacity .7s,transform .7s;overflow:hidden}
+#cover.out{opacity:0;transform:scale(1.2);pointer-events:none}
+#moon{width:92px;height:92px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fffaf0,#f3e9dc 60%,#cbbfe0);box-shadow:0 0 50px 12px #b388ff88;margin-bottom:18px;animation:fl 5s ease-in-out infinite}
+#cover h1{font:64px 'UnifrakturCook',serif;margin:0;color:var(--bone);text-shadow:0 0 18px var(--rose),3px 3px 0 #000}
+#cover h2{font:700 34px 'Aref Ruqaa',serif;margin:0;color:var(--gold)}
+#cover p{font:500 17px 'Baloo Bhaijaan 2';margin:8px 0 22px;color:#d9c8f5}
+.tag{border:2px solid var(--gold);border-radius:20px;padding:3px 16px;font:700 16px 'Aref Ruqaa';color:var(--gold);margin-bottom:12px}
+.fl{position:absolute;font-size:28px;animation:fl 6s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-20px) rotate(10deg)}}
+#win{position:relative;width:100%;max-width:440px;background:var(--pan);border:4px solid var(--gold);border-radius:10px;box-shadow:0 0 22px #7a52e066,5px 5px 0 #000;overflow:hidden;align-self:flex-start}
+#bar{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(90deg,#2a1245,#4a1b5e);padding:6px 12px;direction:ltr;font:700 17px 'UnifrakturCook',serif;border-bottom:3px solid var(--gold);color:var(--bone)}
+#hud{font:800 13px 'Baloo Bhaijaan 2';direction:rtl;color:var(--gold)}
+canvas{display:block;width:100%;image-rendering:pixelated;touch-action:none;background:#140a24}
+#msg{background:#2a1245;border-top:3px solid var(--gold);padding:8px 14px 10px;font:500 15px/1.6 'Baloo Bhaijaan 2';min-height:52px}
+#dlg{position:absolute;inset:48px 10px 10px;background:linear-gradient(#241240,#170a2a);border:3px double var(--gold);border-radius:8px;box-shadow:0 0 24px #000;padding:16px 14px 14px;overflow:auto;z-index:5}
+#dlg[hidden]{display:none}
+.pill{display:inline-block;border:2px solid var(--gold);border-radius:18px;padding:0 14px;font:700 20px 'Aref Ruqaa',serif;color:var(--gold)}
+p{font:500 15px/1.8 'Baloo Bhaijaan 2';margin:6px 0}
+.b{background:var(--rose);color:#fff;border:2px solid var(--bone);border-radius:10px;box-shadow:0 0 12px #ff3d7f88;font:800 16px 'Baloo Bhaijaan 2';padding:5px 16px;margin:10px 0 0 6px}
+.b:active{transform:scale(.96)}
+.r{background:#120824;border:2px dashed var(--vio);border-radius:10px;padding:10px;margin-top:10px;font:500 15px/1.8 'Baloo Bhaijaan 2'}
+.nm{font:700 34px 'Aref Ruqaa',serif;text-align:center;color:var(--rose);text-shadow:0 0 14px #ff3d7f88;margin:6px 0 0}
+.en{text-align:center;font:700 16px 'UnifrakturCook',serif;color:var(--gold);margin-bottom:8px}
+.row{display:flex;justify-content:space-between;font:800 14px 'Baloo Bhaijaan 2';margin-top:4px}
+.bar{height:10px;background:#120824;border:2px solid var(--vio);border-radius:6px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--vio),var(--rose))}
+</style></head><body>
+<div id="cover">
+ <span class="fl" style="top:9%;left:10%">🦇</span><span class="fl" style="top:16%;right:12%;animation-delay:1s">🕯️</span><span class="fl" style="bottom:14%;left:14%;animation-delay:2s">🥀</span><span class="fl" style="bottom:20%;right:10%;animation-delay:3s">🦇</span>
+ <div id="moon"></div>
+ <div class="tag">midnight elixir ✦ إكسير منتصف الليل</div>
+ <h1>Wishnook</h1><h2>ركن الأمنيات</h2>
+ <p>🖤 هدية قوثية صُنعت لكِ وحدك · A gothic gift for you</p>
+ <button class="b" id="enter" style="font-size:20px;padding:8px 28px">ادخلي القصر · Enter 🦇</button>
+</div>
+<div id="win">
+ <div id="bar"><span>Wishnook ✦ @wishnook1</span><span id="hud">🧪 0/3</span></div>
+ <canvas id="c" width="120" height="160"></canvas>
+ <div id="msg">…</div>
+ <div id="dlg" hidden></div>
+</div>
+<script>
+const BRAND="Wishnook";
+const CFG={to:"لجين",from:"نوف",handle:"@wishnook1",sig:"eb73f293",
+ msg:"هذا الإكسير مصنوع من أجمل ما فيك يا لجين، وما في نسخة ثانية منه. Happy Birthday to the one and only you 🦇🖤"};
+const H=s=>{let h=5381;for(const c of s)h=((h<<5)+h+c.charCodeAt(0))>>>0;return h.toString(16)};
+const lic=()=>H(BRAND+"|"+CFG.to)===CFG.sig&&document.title.includes(BRAND);
+const $=i=>document.getElementById(i),C=$("c"),X=C.getContext("2d");
+document.addEventListener("contextmenu",e=>e.preventDefault());
+let A;const beep=(f=200,d=.08,ty="sawtooth",v=.035)=>{try{A=A||new AudioContext();const o=A.createOscillator(),g=A.createGain();o.type=ty;o.frequency.value=f;g.gain.value=v;o.connect(g);g.connect(A.destination);o.start();o.stop(A.currentTime+d)}catch(e){}};
+const ING=[{n:"وردة دم",e:"Blood Rose",tr:"الجمال",c:"#ff3d7f"},{n:"جناح خفاش",e:"Bat Wing",tr:"الغموض",c:"#7a52e0"},{n:"هلال القمر",e:"Moon Shard",tr:"الأحلام",c:"#ffe9a8"},{n:"جمجمة صغيرة",e:"Tiny Skull",tr:"الجرأة",c:"#8ef0d0"},{n:"عنكبوت ليلي",e:"Night Spider",tr:"الذكاء",c:"#5ac8ff"},{n:"قلب أسود",e:"Black Heart",tr:"الحنان",c:"#d28bff"}];
+const GOLD="#e8c15a",BONE="#f3e9dc";
+const rc=(c,x,y,w,h)=>{X.fillStyle=c;X.fillRect(Math.round(x),Math.round(y),w,h)};
+const ell=(cx,cy,rx,ry,c)=>{cx=Math.round(cx);cy=Math.round(cy);for(let d=-Math.round(ry);d<=ry;d++){const w=Math.floor(rx*Math.sqrt(Math.max(0,1-d*d/(ry*ry))));rc(c,cx-w,cy+d,2*w+1,1)}};
+const px=(rows,c,x,y)=>rows.forEach((r,j)=>[...r].forEach((h,i)=>{if(h==="a")rc(c,x+i,y+j,1,1)}));
+const HEART=[".a.a.","aaaaa",".aaa.","..a.."];
+const hx=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16));
+let S=0,chosen=[],land=[],fly=[],stir=0,lastA=null,down=false,flash=0,by=100,t=0,parts=[],sp={x:60,y:70};
+const say=s=>$("msg").textContent=s;
+const potCol=()=>{if(!land.length)return"#3a2a5a";const a=[0,0,0];land.forEach(i=>hx(ING[i].c).forEach((v,k)=>a[k]+=v/land.length));return"rgb("+a.map(Math.round)+")"};
+function dlg(t,h){const d=$("dlg");d.innerHTML=`<div class=pill>${t}</div>${h}`;d.hidden=false;d.scrollTop=0}
+function cl(){$("dlg").hidden=true;beep(150,.1)}
+function start(){cl();S=1;chosen=[];land=[];fly=[];stir=0;lastA=null;by=100;parts=[];$("hud").textContent="🧪 0/3";say("اختاري ٣ مكونات من الرف والمسيها لترميها في القدر 🦇")}
+function menu(){S=0;dlg("🕯️ قصر منتصف الليل",`<p>أهلًا ${CFG.to}… في هذا القصر يُصنع إكسير لا يتكرر. اختاري ٣ مكونات، حرّكي القدر، وشوفي وش يطلع لك. 🖤</p><button class=b onclick="start()">ابدئي السحر · Begin ✦</button>`)}
+function burst(x,y,n,cols){for(let i=0;i<n;i++){const a=Math.random()*6.3,s=Math.random()*1.4+.3;parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-.8,c:cols[i%cols.length],l:50})}}
+function fin(){
+ if(!lic()){dlg("تنبيه","<p>نسخة معدّلة بدون ترخيص. للتعديل تواصلي مع <b>ركن الأمنيات · Wishnook</b> "+CFG.handle+"</p>");return}
+ const pc=[100,96,92];
+ dlg("🧪 إكسيرك جاهز",`<div class=nm>إكسير ${CFG.to}</div><div class=en>Midnight Elixir · No. 001</div>${chosen.map((i,k)=>`<div class=row><span>${ING[i].n} · ${ING[i].tr}</span><span>${pc[k]}%</span></div><div class=bar><i style="width:${pc[k]}%"></i></div>`).join("")}<div class=r>${CFG.msg}<br>— من ${CFG.from} 🖤</div><p style="text-align:center;margin:10px 0 0"><b>Wishnook · ركن الأمنيات</b><br>${CFG.handle}</p><button class=b onclick="cl()">يا سلام 🦇</button><button class=b style="background:var(--vio)" onclick="menu()">اخلطي من جديد · Again</button>`);
+ burst(60,60,50,["#ff3d7f","#e8c15a","#b388ff"])}
+$("enter").onclick=()=>{$("cover").classList.add("out");beep(120,.4,"sine",.06);menu()};
+const P=e=>{const r=C.getBoundingClientRect();return{x:(e.clientX-r.left)/r.width*120,y:(e.clientY-r.top)/r.height*160}};
+C.addEventListener("pointerdown",e=>{const p=P(e);down=true;lastA=null;sp=p;
+ if(S===1&&p.y>124&&chosen.length<3){const i=Math.floor((p.x-5)/18);if(i>=0&&i<6&&!chosen.includes(i)){chosen.push(i);fly.push({i,p:0});beep(300,.06,"square")}}
+ if(S===3&&Math.abs(p.x-60)<20&&p.y>35&&p.y<90)fin()});
+C.addEventListener("pointerup",()=>{down=false;lastA=null});
+C.addEventListener("pointermove",e=>{const p=P(e);sp=p;if(S!==2||!down)return;
+ const dx=p.x-60,dy=p.y-86,d=Math.hypot(dx,dy);if(d<6||d>46){lastA=null;return}
+ const a=Math.atan2(dy,dx);if(lastA!==null){let k=a-lastA;if(k>Math.PI)k-=6.283;if(k<-Math.PI)k+=6.283;stir+=Math.abs(k);if(Math.floor(stir*2)!==Math.floor((stir-Math.abs(k))*2))beep(110+stir*14,.06,"triangle",.05)}
+ lastA=a;
+ if(stir>=16){S=3;flash=22;by=96;burst(60,80,60,[potCol(),"#fff","#ff3d7f"]);beep(70,.6,"sawtooth",.08);say("القارورة جاهزة! المسيها 🧪")}});
+function item(i,x,y,a){X.globalAlpha=a;const c=ING[i].c;
+ if(i===0){rc("#2f9e5a",x,y+2,1,5);ell(x,y-1,3,3,"#ff3d7f");ell(x,y-1,1,1,"#c2185b")}
+ else if(i===1){ell(x,y,2,2,"#6b4aa5");rc("#7a52e0",x-6,y-1,4,2);rc("#7a52e0",x+3,y-1,4,2);rc("#7a52e0",x-5,y+1,2,1);rc("#7a52e0",x+4,y+1,2,1)}
+ else if(i===2){ell(x,y,4,4,"#ffe9a8");ell(x+2,y-1,3,3,"#3a2250")}
+ else if(i===3){ell(x,y-1,3,3,BONE);rc(BONE,x-2,y+2,5,2);rc("#140a24",x-2,y-1,2,2);rc("#140a24",x+1,y-1,2,2)}
+ else if(i===4){ell(x,y,2,2,"#5ac8ff");[-3,3].forEach(o=>{rc("#5ac8ff",x+o-(o<0?1:0),y-2,2,1);rc("#5ac8ff",x+o-(o<0?1:0),y+2,2,1);rc("#5ac8ff",x+o*1.5,y,1,1)})}
+ else px(HEART,"#d28bff",x-2,y-2);X.globalAlpha=1}
+function loop(){t++;
+ for(let y=0;y<112;y+=4)rc(`rgb(${20+y/4},${10+y/8},${36+y/3})`,0,y,120,4);
+ // window
+ ell(60,24,23,17,GOLD);rc(GOLD,37,24,46,30);ell(60,24,21,15,"#2c1a55");rc("#2c1a55",39,24,42,28);
+ for(let i=0;i<7;i++)if((t/22+i)%3>1)rc("#fff",42+i*5,18+(i*7)%26,1,1);
+ ell(68,28,7,7,BONE);ell(70,26,2,2,"#cbbfe0");ell(65,31,1,1,"#cbbfe0");
+ rc("rgba(90,60,150,.7)",(t/6)%70+30,38,18,3);
+ rc(GOLD,59,9,2,43);rc(GOLD,39,36,42,2);
+ // webs
+ [[0,1],[119,-1]].forEach(([x0,s])=>{for(const r of[8,15,22])for(let a=0;a<=90;a+=9){const k=a*Math.PI/180;rc("rgba(220,210,240,.35)",x0+s*Math.cos(k)*r,Math.sin(k)*r,1,1)}for(let a=0;a<=90;a+=30){const k=a*Math.PI/180;for(let r=0;r<22;r+=2)rc("rgba(220,210,240,.3)",x0+s*Math.cos(k)*r,Math.sin(k)*r,1,1)}});
+ // floor
+ for(let y=112;y<160;y+=8)for(let x=0;x<120;x+=8)rc(((x+y)/8)%2?"#1b0f2e":"#2a1840",x,y,8,8);
+ rc("#0c0618",0,111,120,2);
+ // bats
+ for(let i=0;i<3;i++){const x=(t*.5+i*52)%150-14,y=14+i*13+Math.sin(t/9+i)*5,f=(t>>3)%2?2:0;rc("#b388ff",x-1,y,3,2);rc("#7a52e0",x-5,y-f,4,2);rc("#7a52e0",x+3,y-f,4,2)}
+ // candles
+ [12,108].forEach((x,i)=>{const f=Math.round(Math.sin(t/4+x));X.globalAlpha=.18;ell(x,88,16,16,"#ffb02e");X.globalAlpha=1;rc(GOLD,x-4,108,9,2);rc(BONE,x-2,92,5,16);rc("#ff9a3c",x-1,88+f,3,4);rc("#ffe9a8",x,89+f,1,2)});
+ // cauldron
+ const cx=60,cy=96,pc=potCol(),stirring=S===2;
+ const intensity=1+stir/8+(S===3?0:0);
+ for(let i=0;i<7;i++){const x=42+i*6,h=3+Math.abs(Math.sin(t/3+i))*3*intensity;rc(i%2?"#ff7a30":"#b388ff",x,112-h,5,h);rc("#ffd05a",x+1,112-h/2,3,h/2)}
+ rc("#14091f",38,106,5,5);rc("#14091f",77,106,5,5);
+ ell(cx,cy,25,16,"#5a3a8a");ell(cx,cy,24,15,"#14091f");ell(cx-9,cy+3,3,6,"#2a1845");
+ ell(cx,86,25,8,"#5a3a8a");ell(cx,86,23,6,"#14091f");ell(cx,86,21,5,pc);
+ const sw=stirring?t/4:t/14;for(let k=0;k<4;k++)rc("rgba(255,255,255,.55)",cx+Math.cos(sw+k*1.57)*13,86+Math.sin(sw+k*1.57)*3,3,1);
+ if(land.length)for(let k=0;k<3;k++){const bt=(t*.8+k*17)%34;ell(cx-12+k*12+Math.sin(t/5+k)*2,86-bt/4,1+(bt>20?1:0),1+(bt>20?1:0),"rgba(255,255,255,.65)")}
+ // shelf
+ rc("#3a2250",0,126,120,34);rc(GOLD,0,126,120,2);rc("#241240",0,128,120,2);
+ for(let i=0;i<6;i++){const x=14+i*18;if(S===1)item(i,x,140,chosen.includes(i)?.25:1);else item(i,x,140,.4);rc("rgba(255,255,255,.0)",x,150,1,1)}
+ // flying
+ fly.forEach(f=>{f.p+=.035;const x=14+f.i*18+(60-14-f.i*18)*f.p,y=140+(84-140)*f.p-Math.sin(f.p*3.14)*34;item(f.i,Math.round(x),Math.round(y),1);
+  if(f.p>=1){f.d=1;land.push(f.i);burst(60,84,16,[ING[f.i].c,"#fff"]);beep(160+land.length*60,.15,"sine",.06);$("hud").textContent="🧪 "+land.length+"/3";
+   if(land.length===3){S=2;say("حرّكي إصبعك دوائر حول القدر لتخلطين السحر 🥄")}}});fly=fly.filter(f=>!f.d);
+ // stir
+ if(S===2){const k=Math.min(stir/16,1);rc("#120824",30,8,60,6);rc(GOLD,29,7,62,1);rc(GOLD,29,14,62,1);rc(pc,31,9,Math.round(58*k),4);
+  if(stir<2){X.globalAlpha=.5+.4*Math.sin(t/6);for(let a=0;a<6.2;a+=.4)rc("#fff",cx+Math.cos(a+t/10)*32,86+Math.sin(a+t/10)*13,1,1);X.globalAlpha=1}
+  if(down){const a=Math.atan2(sp.y-86,sp.x-60),r=Math.min(Math.hypot(sp.x-60,sp.y-86),28),sx=60+Math.cos(a)*r,sy=86+Math.sin(a)*r*.5;rc("#c9a36b",sx,sy-18,2,20);rc("#a07a3f",sx-1,sy,4,4)}}
+ // bottle
+ if(S>=3){const y=by+Math.sin(t/14)*2;if(by>56)by-=.6;const b=Math.round(y);
+  X.globalAlpha=.22;ell(60,b+4,22,22,pc);X.globalAlpha=1;
+  rc("#cfc2ff",56,b-8,8,9);ell(60,b+8,10,11,"#cfc2ff");ell(60,b+9,8,9,"#2a1845");ell(60,b+10,8,8,pc);rc("#cfc2ff",58,b-8,4,1);rc("#c9a36b",56,b-12,8,4);rc("rgba(255,255,255,.7)",54,b+3,2,6);
+  rc(BONE,55,b+8,10,6);px(HEART,"#ff3d7f",57,b+8);
+  for(let k=0;k<4;k++){const a=t/18+k*1.57;rc(GOLD,60+Math.cos(a)*22,b+6+Math.sin(a)*8,2,2)}}
+ parts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.03;p.l--;rc(p.c,p.x,p.y,2,2)});parts=parts.filter(p=>p.l>0);
+ X.font="5px monospace";X.fillStyle="rgba(232,193,90,.7)";X.fillText("WISHNOOK "+CFG.handle,3,157);
+ if(!lic()){rc("#e0505a",0,0,120,9);X.fillStyle="#fff";X.fillText("UNLICENSED COPY",3,7)}
+ if(flash>0){X.globalAlpha=flash/22;rc("#fff",0,0,120,160);X.globalAlpha=1;flash--}
+ requestAnimationFrame(loop)}
+loop();
+</script></body></html>
